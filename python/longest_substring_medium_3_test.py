@@ -8,8 +8,7 @@ class Solution:
             chars = ""
             for j in range(i, len(s)):
                 char = s[j]
-                repetition = any([c == char for c in chars])
-                if repetition:
+                if char in chars:
                     break
                 chars += char
                 length = len(chars)
@@ -25,7 +24,6 @@ class Solution:
         #
         # Once you have found a long string you can stop checking any shorter
         # strings
-        return 0
 
 
 test_data = [
