@@ -2,6 +2,8 @@
 
 from typing import List
 
+import pytest
+
 
 def twoSum(nums: List[int], target: int) -> List[int]:
     for i in range(len(nums)):
@@ -12,20 +14,13 @@ def twoSum(nums: List[int], target: int) -> List[int]:
     return []
 
 
-# TODO: parameterize tests
-def test_1():
-    nums = [2, 7, 11, 15]
-    target = 9
-    assert [0, 1] == twoSum(nums, target)
+test_data = [
+    ([2, 7, 11, 15], 9, [0, 1]),
+    ([3, 2, 4], 6, [1, 2]),
+    ([3, 3], 6, [0, 1]),
+]
 
 
-def test_2():
-    nums = [3, 2, 4]
-    target = 6
-    assert [1, 2] == twoSum(nums, target)
-
-
-def test_3():
-    nums = [3, 3]
-    target = 6
-    assert [0, 1] == twoSum(nums, target)
+@pytest.mark.parametrize("nums,target,expected", test_data)
+def test_all(nums, target, expected):
+    assert expected == twoSum(nums, target)
