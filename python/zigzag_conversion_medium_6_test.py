@@ -3,6 +3,8 @@ import pytest
 
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
+        if numRows == 1:
+            return s
         list = ["" for row in range(numRows)]
         row = 0
         rowDelta = 1
@@ -20,6 +22,7 @@ test_data = [
     ("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR"),
     ("PAYPALISHIRING", 4, "PINALSIGYAHRPI"),
     ("A", 1, "A"),
+    ("AB", 1, "AB"),
 ]
 
 
